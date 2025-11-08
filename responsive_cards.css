@@ -1,0 +1,56 @@
+/* Reset browser defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body and header */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b0d1f2;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  background: #264653;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+/* Card container (the flex parent) */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping */
+  justify-content: center;
+  gap: 20px; /* space between cards */
+}
+
+/* Individual card */
+.card {
+  background-color: #86dc8e;
+  border: 3px solid #2a9d8f;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 300px; /* default width for desktop */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #f4a261;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #777;
+}
