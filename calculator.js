@@ -14,6 +14,7 @@ window.onload = function() {
     let divBtn = document.getElementById("divBtn");
     let powBtn = document.getElementById("powBtn");
     let modBtn = document.getElementById("modBtn");
+    let squareBtn = document.getElementById("squareBtn");
 
     // in this section we use function to safely get numbers
     function getNumbers() {
@@ -27,44 +28,57 @@ window.onload = function() {
 
           return { a, b}
         }
+
+        function formatResult(value) {
+            // If it's  already a whole number , just return it
+            if (Number.isInteger(value)) {
+                return value;
+            }
+            return value.toFixed(3);
+        }
         // we add each operation button
         addBtn.addEventListener("click", function() {
             let numbers = getNumbers();
-            if (numbers) result.innerText = `Result: ${numbers.a + numbers.b}`;
+            if (numbers) result.innerText = `Result: ${formatResult(numbers.a + numbers.b)}`;
         });
 
         subBtn.addEventListener("click", function() {
             let numbers = getNumbers();
-            if (numbers) result.innerText = `Result: ${numbers.a - numbers.b}`;
+            if (numbers) result.innerText = `Result: ${formatResult(numbers.a - numbers.b)}`;
         });
 
         mulBtn.addEventListener("click", function () {
             let numbers = getNumbers();
-            if (numbers) result.innerText = `Result: ${numbers.a * numbers.b}`;
+            if (numbers) result.innerText = `Result: ${formatResult(numbers.a * numbers.b)}`;
         });
 
         divBtn.addEventListener("click", function() {
             let numbers = getNumbers();
             if (numbers) {
                 if (numbers.b === 0) {
-                    result.innerText = " Sorry cannot divide by zero!";
+                    result.innerText = " Sorry cannot divide by zero please change second number.";
                 } else {
-                    result.innerText = `Reslut: ${numbers.a / numbers.b}`;
+                    result.innerText = `Reslut: ${formatResult(numbers.a / numbers.b)}`;
                 }
             }
         });
 
         powBtn.addEventListener("click", function() {
             let numbers = getNumbers();
-            if (numbers) result.innerText = `Result: ${numbers.a ** numbers.b}`;
+            if (numbers) result.innerText = `Result: ${formatResult(numbers.a ** numbers.b)}`;
         });
 
         modBtn.addEventListener("click", function() {
             let numbers = getNumbers();
-            if (numbers.b === 0) {result.innerText = `sorry cannot perform modulus with zero`    
+            if (numbers.b === 0) {result.innerText = `sorry cannot perform modulus with zero please change second number.`    
             } else { 
-                result.innerText = `Result: ${numbers.a % numbers.b}`;
+                result.innerText = `Result: ${formatResult(numbers.a % numbers.b)}`;
             }
+        });
+
+        squareBtn.addEventListener("click", function() {
+            let numbers = getNumbers();
+            if (numbers) result.innerText = `Result: ${formatResult(numbers.a **2 )}`
         });
 
     }
